@@ -1,16 +1,33 @@
 # tarot_flutter
 
-A new Flutter project.
+Projeto desenvolvido em Flutter, aplicando os conceitos aprendidos em sala de aula.
 
-## Getting Started
+## Sobre o projeto
 
-This project is a starting point for a Flutter application.
+Este projeto disponibiliza um conjunto de 36 cartas de tarot, permitindo que o usuário selecione 5 delas. Cada carta possui uma descrição própria e é armazenada em uma variável, que será utilizada junto com a pergunta do usuário para uma LLM. A interpretação e resposta ao cliente serão fornecidas pelo **Gemma 3**, um modelo de LLM gratuito da Google.
 
-A few resources to get you started if this is your first Flutter project:
+## Como começar
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Para utilizar o projeto, siga os passos abaixo:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone o repositório:
+   ```sh
+   git clone <URL_DO_REPOSITORIO>
+Navegue até o diretório do projeto:
+
+sh
+cd tarot_flutter
+Instale as dependências necessárias:
+
+sh
+flutter pub get
+Execute o projeto:
+
+sh
+flutter run
+Tecnologias utilizadas
+Flutter: Framework para desenvolvimento multiplataforma.
+
+Gemma 3: Modelo de LLM para interpretação e geração de respostas.
+
+Dart: Linguagem de programação utilizada no desenvolvimento.
