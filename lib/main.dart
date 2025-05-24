@@ -6,13 +6,11 @@ import 'app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Definir orientações preferenciais
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
   
-  // Inicializar preferências compartilhadas
   await SharedPreferences.getInstance();
   
   runApp(const TarologiaApp());

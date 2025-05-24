@@ -21,7 +21,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       duration: const Duration(seconds: 2),
     )..forward();
     
-    // Simulate image loading
     Future.delayed(const Duration(milliseconds: 500), () {
       if (mounted) {
         setState(() {
@@ -42,17 +41,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     return Scaffold(
       body: Stack(
         children: [
-          // Starry background
           const StarryBackground(),
           
-          // Main content
           SafeArea(
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
-                    // Title with animation
                     SlideTransition(
                       position: Tween<Offset>(
                         begin: const Offset(0, -0.5),
@@ -146,7 +142,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                   ),
                                 ),
                               
-                              // Main image
                               AnimatedOpacity(
                                 duration: const Duration(milliseconds: 500),
                                 opacity: _imageLoaded ? 1.0 : 0.0,
@@ -156,7 +151,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                     'assets/images/carta-capa.jpeg',
                                     fit: BoxFit.cover,
                                     errorBuilder: (context, error, stackTrace) {
-                                      // Fallback when image can't be loaded
                                       return Container(
                                         color: const Color(0xFF312E81),
                                         child: const Center(
@@ -172,7 +166,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                 ),
                               ),
                               
-                              // Static glow effect
                               Positioned.fill(
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -226,7 +219,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                     
                     const SizedBox(height: 32),
                     
-                    // Start consultation button
                     SlideTransition(
                       position: Tween<Offset>(
                         begin: const Offset(0, 0.5),

@@ -13,25 +13,18 @@ import '../presentation/pages/settings/settings_page.dart';
   }
 
 class Routes {
-  /// Rota inicial
   static const String initial = '/';
   
-  /// Rota de consulta
   static const String consultation = '/consultation';
   
-  /// Rota de seleção de cartas
   static const String cardSelection = '/card-selection';
   
-  /// Rota de resultado
   static const String result = '/result';
   
-  /// Rota de histórico
   static const String history = '/history';
   
-  /// Rota de configuração
   static const String settings = '/settings';
   
-  /// Obtém todas as rotas do aplicativo
   static Map<String, WidgetBuilder> getRoutes() {
     return {
       // initial: (context) => const HomePage(),
@@ -43,7 +36,6 @@ class Routes {
     };
   }
   
-  /// Configura transições personalizadas para as rotas
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.consultation:
@@ -86,7 +78,6 @@ class Routes {
   }
   
   
-  /// Constrói uma transição personalizada para uma rota
   static PageRouteBuilder _buildTransitionRoute(
     Widget page,
     RouteSettings settings,

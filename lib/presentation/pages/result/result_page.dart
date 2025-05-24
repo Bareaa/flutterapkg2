@@ -47,13 +47,11 @@ class _ResultPageState extends State<ResultPage> with SingleTickerProviderStateM
     });
     
     try {
-      // Obter dados da consulta
       final consultationData = await StorageService.getConsultationData();
       if (consultationData == null) {
         throw Exception('Consultation data not found');
       }
       
-      // Obter cartas selecionadas
       final selectedCardNumbers = await StorageService.getSelectedCards();
       if (selectedCardNumbers.isEmpty) {
         throw Exception('No cards selected');
@@ -61,13 +59,11 @@ class _ResultPageState extends State<ResultPage> with SingleTickerProviderStateM
       
       final selectedCards = _cardsRepository.getCardsByNumbers(selectedCardNumbers);
       
-      // Gerar interpretação
       final interpretation = await ApiService.interpretCards(
         consultationData,
         selectedCards,
       );
       
-      // Salvar no histórico
       await StorageService.saveToHistory(
         name: consultationData.name,
         birthDate: consultationData.birthDate,
@@ -76,7 +72,6 @@ class _ResultPageState extends State<ResultPage> with SingleTickerProviderStateM
         interpretation: interpretation,
       );
       
-      // Atualizar estado
       if (mounted) {
         setState(() {
           _consultationData = consultationData;
@@ -320,7 +315,6 @@ Get your own reading with the Mystic Tarology app!
             
             const SizedBox(height: 24),
             
-            // Selected cards
             FadeTransition(
               opacity: _animationController,
               child: SlideTransition(
@@ -365,7 +359,6 @@ Get your own reading with the Mystic Tarology app!
             
             const SizedBox(height: 24),
             
-            // Interpretation
             FadeTransition(
               opacity: _animationController,
               child: SlideTransition(
@@ -404,7 +397,6 @@ Get your own reading with the Mystic Tarology app!
             
             const SizedBox(height: 32),
             
-            // Action buttons
             FadeTransition(
               opacity: _animationController,
               child: Row(
@@ -545,7 +537,6 @@ Get your own reading with the Mystic Tarology app!
           ),
         );
       } else if (line.startsWith('1. ') || line.startsWith('2. ') || line.startsWith('3. ')) {
-        // Numbered list item
         final number = line.substring(0, line.indexOf('.'));
         widgets.add(
           Padding(

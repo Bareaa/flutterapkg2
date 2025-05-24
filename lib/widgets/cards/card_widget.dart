@@ -41,7 +41,6 @@ class _CardWidgetState extends State<CardWidget> with SingleTickerProviderStateM
         setState(() {});
       });
     
-    // Simulate image loading
     Future.delayed(Duration(milliseconds: 300 + widget.index * 50), () {
       if (mounted) {
         setState(() {
@@ -78,7 +77,6 @@ class _CardWidgetState extends State<CardWidget> with SingleTickerProviderStateM
   void _onTap() {
     if (_flipped) {
       _flipCard();
-      // Wait for animation to complete before calling onTap
       Future.delayed(const Duration(milliseconds: 300), () {
         widget.onTap();
       });
@@ -128,7 +126,6 @@ class _CardWidgetState extends State<CardWidget> with SingleTickerProviderStateM
                   ),
                 ),
               
-              // Card with 3D flip effect
               Transform(
                 alignment: Alignment.center,
                 transform: Matrix4.identity()
@@ -179,7 +176,6 @@ class _CardWidgetState extends State<CardWidget> with SingleTickerProviderStateM
                     'assets/images/cards/card-${widget.card.number}.png',
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
-                      // Fallback when image can't be loaded
                       return Container(
                         color: (cardColors["background"] as Gradient).colors[0],
                         child: Center(
@@ -367,7 +363,6 @@ class _CardWidgetState extends State<CardWidget> with SingleTickerProviderStateM
                     'assets/images/cards/card-back.png',
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
-                      // Fallback when image can't be loaded
                       return Container(
                         color: const Color(0xFF312E81),
                         child: const Center(
@@ -396,7 +391,6 @@ class _CardWidgetState extends State<CardWidget> with SingleTickerProviderStateM
                   ),
                 ),
               
-              // Decorative overlay
               Positioned.fill(
                 child: Container(
                   decoration: BoxDecoration(
@@ -413,7 +407,6 @@ class _CardWidgetState extends State<CardWidget> with SingleTickerProviderStateM
                 ),
               ),
               
-              // Mystical symbols
               Center(
                 child: Stack(
                   alignment: Alignment.center,
@@ -455,7 +448,6 @@ class _CardWidgetState extends State<CardWidget> with SingleTickerProviderStateM
                 ),
               ),
               
-              // "Click to flip" text
               Positioned(
                 bottom: 8,
                 left: 0,

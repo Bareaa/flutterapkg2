@@ -56,7 +56,6 @@ class _LoadingEffectState extends State<LoadingEffect> with SingleTickerProvider
         return Stack(
           alignment: Alignment.center,
           children: [
-            // Círculo externo pulsante
             Container(
               width: widget.size * _pulseAnimation.value,
               height: widget.size * _pulseAnimation.value,
@@ -69,7 +68,6 @@ class _LoadingEffectState extends State<LoadingEffect> with SingleTickerProvider
               ),
             ),
             
-            // Círculo médio
             Container(
               width: widget.size * 0.8,
               height: widget.size * 0.8,
@@ -82,7 +80,6 @@ class _LoadingEffectState extends State<LoadingEffect> with SingleTickerProvider
               ),
             ),
             
-            // Círculo interno girando
             Transform.rotate(
               angle: _rotationAnimation.value * 6.28, // 2π radianos (360 graus)
               child: Stack(
@@ -121,7 +118,6 @@ class _LoadingEffectState extends State<LoadingEffect> with SingleTickerProvider
               ),
             ),
             
-            // Círculo central brilhante
             Container(
               width: widget.size * 0.2,
               height: widget.size * 0.2,
