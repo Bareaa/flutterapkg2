@@ -1,6 +1,5 @@
 import '../data/models/tarot_card.dart';
 
-/// Lista de cartas de tarô
 final List<TarotCard> tarotCards = [
 TarotCard(
     number: 1,

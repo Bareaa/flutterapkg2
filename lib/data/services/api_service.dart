@@ -1,4 +1,3 @@
-// lib/services/api_service.dart
 import 'dart:convert';
 import 'dart:io';
 
@@ -8,16 +7,11 @@ import '../models/consultation_data.dart';
 import '../models/tarot_card.dart';
 
 class ApiService {
-  /* --------------------------------------------------------------------- */
-  /* 1. ENDPOINT FIXO COM A CHAVE NA URL                                    */
-  /* --------------------------------------------------------------------- */
+
   static const String _endpoint =
       'https://generativelanguage.googleapis.com/v1beta/models/'
       'gemini-2.0-flash:generateContent?key=AIzaSyAOGuUI4ecvivH3LaMaAUyD_z3pey0yCTU';
 
-  /* --------------------------------------------------------------------- */
-  /* 2. CHAMADA PRINCIPAL                                                   */
-  /* --------------------------------------------------------------------- */
   static Future<String> interpretCards(
     ConsultationData consultation,
     List<TarotCard> cards,
@@ -64,9 +58,6 @@ class ApiService {
     }
   }
 
-  /* --------------------------------------------------------------------- */
-  /* 3. TRATAMENTO DE ERRO DA API                                           */
-  /* --------------------------------------------------------------------- */
   static String _parseError(int code, String? phrase, String rawBody) {
     try {
       final body = jsonDecode(rawBody);
@@ -77,9 +68,6 @@ class ApiService {
     }
   }
 
-  /* --------------------------------------------------------------------- */
-  /* 4. FALBACK OFFLINE (mesmo que antes)                                   */
-  /* --------------------------------------------------------------------- */
   static String _generateOfflineInterpretation(
     ConsultationData consultation,
     List<TarotCard> cards,
@@ -102,9 +90,6 @@ ${_generateBasicResponse(consultation.question, cards)}
 ''';
   }
 
-  /* --------------------------------------------------------------------- */
-  /* 5. UTILITÁRIOS (os mesmos que você já tinha)                           */
-  /* --------------------------------------------------------------------- */
   static List<String> _identifyDominantElements(List<TarotCard> cards) {
     final Map<String, int> count = {};
     for (final c in cards) {
@@ -130,21 +115,12 @@ ${_generateBasicResponse(consultation.question, cards)}
     }
   }
 
-  /* ---- gera respostas por tema, etc.  (copiado da sua versão anterior) -- */
-  // -------------- cole aqui as funções _generateBasicResponse,             //
-  // _generateGuidance, _aspectByElement, etc., caso ainda vá usá-las.      //
-  // Elas foram omitidas apenas para encurtar a listagem.                   //
 
   static String _generateBasicResponse(String question, List<TarotCard> cards) {
-    // Gera uma resposta simples baseada nas cartas sorteadas.
     final cardNames = cards.map((c) => c.name).join(', ');
     return 'Com base nas cartas sorteadas ($cardNames), a resposta à sua pergunta "$question" sugere reflexão e análise sobre o momento atual. Confie em sua intuição e busque equilíbrio nas decisões.';
   }
-  /* --------------------------------------------------------------------- */
 
-  /* --------------------------------------------------------------------- */
-  /* 6. PROMPT ENVIADO AO GEMINI                                            */
-  /* --------------------------------------------------------------------- */
   static String _generateInterpretationPrompt(
     ConsultationData data,
     List<TarotCard> cards,
