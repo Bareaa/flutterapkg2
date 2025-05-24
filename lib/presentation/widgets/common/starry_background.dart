@@ -17,7 +17,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
   void initState() {
     super.initState();
     
-    // Controllers for animating star layers
     _starsController1 = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 200),
@@ -46,7 +45,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Gradient background
         Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -60,7 +58,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
           ),
         ),
         
-        // Stars layer 1
         AnimatedBuilder(
           animation: _starsController1,
           builder: (context, child) {
@@ -83,7 +80,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
           },
         ),
         
-        // Stars layer 2
         AnimatedBuilder(
           animation: _starsController2,
           builder: (context, child) {
@@ -106,7 +102,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
           },
         ),
         
-        // Stars layer 3
         AnimatedBuilder(
           animation: _starsController3,
           builder: (context, child) {
@@ -227,7 +222,7 @@ class ParticlesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     for (var particle in particles) {
-      // Update position
+
       final radians = particle.direction * pi / 180;
       final dx = cos(radians) * particle.speed;
       final dy = sin(radians) * particle.speed;
@@ -237,7 +232,6 @@ class ParticlesPainter extends CustomPainter {
         (particle.position.dy + dy) % 1.0,
       );
       
-      // Draw particle
       final paint = Paint()..color = particle.color;
       canvas.drawCircle(
         Offset(

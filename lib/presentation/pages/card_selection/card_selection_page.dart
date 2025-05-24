@@ -78,15 +78,13 @@ class _CardSelectionPageState extends State<CardSelectionPage> with TickerProvid
     final result = _selectionManager.toggleCardSelection(cardNumber);
     
     if (!result.success) {
-      // Mostrar mensagem de erro
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(result.message),
           backgroundColor: Colors.red,
         ),
       );
-      
-      // Animar shake
+
       _shakeController.reset();
       _shakeController.forward();
     }
@@ -110,10 +108,8 @@ class _CardSelectionPageState extends State<CardSelectionPage> with TickerProvid
     });
     
     try {
-      // Salvar cartas selecionadas
       await StorageService.saveSelectedCards(_selectionManager.selectedCards);
       
-      // Navegar para a tela de resultado
       if (mounted) {
         Navigator.pushNamed(context, '/result');
       }

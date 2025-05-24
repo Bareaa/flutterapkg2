@@ -33,7 +33,6 @@ class _CardDetailWidgetState extends State<CardDetailWidget> with SingleTickerPr
         setState(() {});
       });
     
-    // Simulate image loading
     Future.delayed(const Duration(milliseconds: 300), () {
       if (mounted) {
         setState(() {

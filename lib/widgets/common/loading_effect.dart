@@ -124,13 +124,10 @@ class _MysticSymbolPainter extends CustomPainter {
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round;
 
-    // Outer circle
     canvas.drawCircle(center, radius * 0.9, paint);
 
-    // Inner circle
     canvas.drawCircle(center, radius * 0.6, paint);
 
-    // Star points
     final starPoints = 5;
     final starOuterRadius = radius * 0.9;
     final starInnerRadius = radius * 0.45;
@@ -154,7 +151,6 @@ class _MysticSymbolPainter extends CustomPainter {
     path.close();
     canvas.drawPath(path, paint);
 
-    // Moon symbol
     final moonPath = Path();
     final moonCenter = Offset(center.dx, center.dy - radius * 0.1);
     moonPath.addArc(
@@ -175,7 +171,6 @@ class _MysticSymbolPainter extends CustomPainter {
     
     canvas.drawPath(moonPath, paint);
 
-    // Sun rays
     final sunCenter = Offset(center.dx, center.dy + radius * 0.1);
     canvas.drawCircle(sunCenter, radius * 0.15, paint);
     

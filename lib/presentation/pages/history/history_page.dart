@@ -39,7 +39,6 @@ class _HistoryPageState extends State<HistoryPage> with SingleTickerProviderStat
     try {
       final history = await StorageService.getHistory();
       
-      // Ordenar por data (mais recente primeiro)
       history.sort((a, b) {
         final dateA = DateTime.parse(a['consultationDate'] as String);
         final dateB = DateTime.parse(b['consultationDate'] as String);
@@ -272,7 +271,6 @@ class _HistoryPageState extends State<HistoryPage> with SingleTickerProviderStat
   Widget _buildHistoryView() {
     return Row(
       children: [
-        // Sidebar with consultation list
         Container(
           width: 200,
           decoration: BoxDecoration(
@@ -471,7 +469,6 @@ class _HistoryPageState extends State<HistoryPage> with SingleTickerProviderStat
             ),
             const SizedBox(height: 24),
             
-            // Interpretation
             const Text(
               'Interpretation',
               style: TextStyle(

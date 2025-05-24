@@ -17,7 +17,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
   void initState() {
     super.initState();
     
-    // Controllers for animating star layers
     _starsController1 = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 200),
@@ -46,7 +45,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Gradient background
         Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -60,7 +58,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
           ),
         ),
         
-        // Stars layer 1
         AnimatedBuilder(
           animation: _starsController1,
           builder: (context, child) {
@@ -106,7 +103,6 @@ class _StarryBackgroundState extends State<StarryBackground> with TickerProvider
           },
         ),
         
-        // Stars layer 3
         AnimatedBuilder(
           animation: _starsController3,
           builder: (context, child) {

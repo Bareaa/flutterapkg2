@@ -32,7 +32,6 @@ class _ConsultationPageState extends State<ConsultationPage> with SingleTickerPr
       duration: const Duration(milliseconds: 800),
     )..forward();
     
-    // Verificar se já existem dados salvos
     _checkExistingData();
   }
 
@@ -45,7 +44,6 @@ class _ConsultationPageState extends State<ConsultationPage> with SingleTickerPr
         try {
           _selectedDate = DateTime.parse(consultationData.birthDate);
         } catch (e) {
-          // Manter a data atual se o parsing falhar
         }
       });
     }
@@ -93,15 +91,12 @@ class _ConsultationPageState extends State<ConsultationPage> with SingleTickerPr
           question: _questionController.text,
         );
         
-        // Salvar dados da consulta
         await ConsultationManager.saveConsultationData(consultationData);
 
-        // Navegar para a tela de seleção de cartas
         if (mounted) {
           Navigator.pushNamed(context, '/card-selection');
         }
       } catch (e) {
-        // Mostrar erro
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

@@ -380,7 +380,6 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
                           
                           const SizedBox(height: 24),
                           
-                          // Copy sample API key (for demo purposes)
                           Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
